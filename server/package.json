@@ -7,9 +7,6 @@
     "build": "tsc",
     "dev": "nodemon src/index.ts",
     "start": "node src/index.js"
-    "build": "tsc",
-    "dev": "nodemon src/index.ts",
-    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "",

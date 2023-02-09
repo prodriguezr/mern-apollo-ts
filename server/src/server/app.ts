@@ -10,11 +10,13 @@ import { DocumentNode } from 'graphql';
 interface startServerProps {
   typeDefs: DocumentNode;
   resolvers: {};
+  connectDB?: () => void;
 }
 
 export const startServer = async ({
   typeDefs,
   resolvers,
+  connectDB,
 }: startServerProps) => {
   const app = express();
   const httpServer = http.createServer(app);
@@ -32,7 +34,9 @@ export const startServer = async ({
 
   app.use('/graphql', cors(), express.json(), expressMiddleware(apolloServer));
 
-  httpServer.listen(PORT, () => {
+  if (connectDB) await connectDB();
+
+  await httpServer.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
   });
 };
