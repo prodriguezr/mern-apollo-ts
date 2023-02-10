@@ -10,6 +10,7 @@ specifiers:
   express: ^4.18.2
   graphql: ^16.6.0
   graphql-tag: ^2.12.6
+  mongodb: ^5.0.1
   mongoose: ^6.9.1
   nodemon: ^2.0.20
   ts-node: ^10.9.1
@@ -21,6 +22,7 @@ dependencies:
   express: 4.18.2
   graphql: 16.6.0
   graphql-tag: 2.12.6_graphql@16.6.0
+  mongodb: 5.0.1
   mongoose: 6.9.1
 
 devDependencies:
@@ -1335,6 +1337,11 @@ packages:
       buffer: 5.7.1
     dev: false
 
+  /bson/5.0.0:
+    resolution: {integrity: sha512-EL2KpZdyhshyyptj6pnQfnFKPoncD9KwZYvgmj/FXQiOUU1HWTHWmBOP4TZXU3YzStcI5qgpIl68YnMo16s26A==}
+    engines: {node: '>=14.20.1'}
+    dev: false
+
   /buffer/5.7.1:
     resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==}
     dependencies:
@@ -1790,6 +1797,28 @@ packages:
       saslprep: 1.0.3
     transitivePeerDependencies:
       - aws-crt
+    dev: false
+
+  /mongodb/5.0.1:
+    resolution: {integrity: sha512-KpjtY+NWFmcic6UDYEdfn768ZTuKyv7CRaui7ZSd6q/0/o1AURMC7KygTUwB1Cl8V10Pe5NiP+Y2eBMCDs/ygQ==}
+    engines: {node: '>=14.20.1'}
+    peerDependencies:
+      '@aws-sdk/credential-providers': ^3.201.0
+      mongodb-client-encryption: ^2.3.0
+      snappy: ^7.2.2
+    peerDependenciesMeta:
+      '@aws-sdk/credential-providers':
+        optional: true
+      mongodb-client-encryption:
+        optional: true
+      snappy:
+        optional: true
+    dependencies:
+      bson: 5.0.0
+      mongodb-connection-string-url: 2.6.0
+      socks: 2.7.1
+    optionalDependencies:
+      saslprep: 1.0.3
     dev: false
 
   /mongoose/6.9.1:

@@ -1,4 +1,4 @@
-import { PORT } from '../config';
+import Config from '../config';
 import express, { Response } from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4';
@@ -36,7 +36,7 @@ export const startServer = async ({
 
   if (connectDB) await connectDB();
 
-  await httpServer.listen(PORT, () => {
-    console.log(`Server listening on port ${PORT}`);
+  await httpServer.listen(Config.PORT, () => {
+    console.log(`Server listening on port ${Config.PORT}`);
   });
 };

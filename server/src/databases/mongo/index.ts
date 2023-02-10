@@ -1,15 +1,19 @@
 import mongoose from 'mongoose';
-import { MONGODB_URI } from '../../config';
+
+import Config from '../../config';
+import { MongoServerError } from 'mongodb';
 
 export const connectDB = async () => {
   try {
-    if (!MONGODB_URI) throw new Error('Database URI is required');
+    if (!Config.DB_URI) throw new Error('Database URI is required');
 
-    const conn = await mongoose.connect(MONGODB_URI);
+    mongoose.set('strictQuery', false);
+
+    const conn = await mongoose.connect(Config.DB_URI);
 
     console.log(`DB '${conn.connection.name}' is connected`);
-  } catch (error) {
-    console.error(`An error has ocurred: ${error}`);
+  } catch (err: any) {
+    console.error(`An error has ocurred: \n${err.message}`);
     process.exit(1);
   }
 };
